@@ -48,6 +48,10 @@ class Solution:
 if __name__ == "__main__":
     solution = Solution()
     
+    # ANSI color codes
+    RED = '\033[91m'
+    RESET = '\033[0m'
+    
     # Test Case 1 - Valid Sudoku
     board1 = [
         ["1","2",".",".","3",".",".",".","."],
@@ -74,5 +78,16 @@ if __name__ == "__main__":
         [".",".",".",".","8",".",".","7","9"]
     ]
     
-    print("Test Case 1 (Expected: True):", solution.isValidSudoku(board1))
-    print("Test Case 2 (Expected: False):", solution.isValidSudoku(board2))
+    # Test Case 1
+    result1 = solution.isValidSudoku(board1)
+    if result1 != True:
+        print(f"{RED}Test Case 1 Failed! Expected: True, Got: {result1}{RESET}")
+    else:
+        print("Test Case 1 Passed! Expected: True, Got:", result1)
+    
+    # Test Case 2
+    result2 = solution.isValidSudoku(board2)
+    if result2 != False:
+        print(f"{RED}Test Case 2 Failed! Expected: False, Got: {result2}{RESET}")
+    else:
+        print("Test Case 2 Passed! Expected: False, Got:", result2)
