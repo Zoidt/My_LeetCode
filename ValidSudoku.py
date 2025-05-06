@@ -23,19 +23,18 @@ class Solution:
 
         
         # Step 2: Check Column
-        for i, sublist in enumerate(board):
-            if sublist[i] == ".":
-                continue
-
+        for col in range(len(board)):
             col_check = {}
+            for row in range(len(board)):
+                item = board[row][col]
+                if item == ".":
+                    continue
+                if item in col_check:
+                    print("duplicate found in COLUMNS")
+                    return False
+                else:
+                    col_check[item] = 1    
 
-            if sublist[i] in col_check:
-                print("duplicate found in COLUMNS")
-                return False
-            else:
-                col_check[sublist[i]] = 1
-
-        print("========= Col Check Clear =========")
 
 
         # Step 3: Check squares
