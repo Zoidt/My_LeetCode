@@ -38,10 +38,25 @@ class Solution:
         print("========= Col Check Clear =========")
 
 
-        # Step 3: Check grid 
-        # Check indexes here in loops of 3? 
-        # Use formart board[i][j]
-        # Formula
+        # Step 3: Check squares
+        square_check = {}
+        for row in range(len(board)):
+            for col in range(len(board[row])):
+                # If the current item is a dot, skip it
+                if board[row][col] == ".":
+                    continue
+                # Get current square
+                curr_square = (row // 3) * 3 + (col // 3)
+                value = board[row][col]
+
+                # Check if value is in our square
+                if value in square_check[curr_square]:
+                    print("duplicate found in SQUARES")
+                    return False
+                else:
+                    square_check[curr_square].append(value)
+
+        print("========= Square Check Clear =========")
 
         return True
 
